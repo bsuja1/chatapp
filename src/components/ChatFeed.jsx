@@ -41,21 +41,29 @@ const ChatFeed = (props) => {
       const replymsg=()=>{
         var text="reply"
         console.log(text)
-        sendMessage(creds, activeChat, { text });
+        //sendMessage(creds, activeChat, { text });
         //ReplyMessage(props);
       }
       
       return (
         <div key={`msg_${index}`} style={{ width: '100%' }}>
           <div className="message-block">
-            < PostMessage message={message} lastMessage={messages[lastMessageKey]}/>
             {isMyMessage?
-              <div className="buttons" style={{ float: 'left',marginLeft: isFirstMessageByUser ? '20px' : '50px'}}>
-              <button onClick={editmsg} name="button_edit">Edit</button>
-              <button onClick={deletemsg} name="button_delete">Delete</button>
-              <button onClick={replymsg} name="button_reply">Reply</button>
+            <div>
+              < PostMessage message={message} lastMessage={messages[lastMessageKey]} lMargin='1px' btextcolor='lightgreen'/>
+              <div className="buttons" style={{ float: 'left',marginLeft: '20px'}}>
+                <button onClick={editmsg} name="button_edit">Edit</button>
+                <button onClick={deletemsg} name="button_delete">Delete</button>
+                <button onClick={replymsg} name="button_reply">Reply</button>
               </div>
-            :  <button onClick={replymsg} name="button_reply">Reply</button>
+            </div>
+            :  
+            <div>
+              < PostMessage message={message} lastMessage={messages[lastMessageKey]} lMargin='30px' btextcolor='lightyellow'/>
+              <div className="buttons" style={{ float: 'left',marginLeft:'50px'}}>
+                <button onClick={replymsg} name="button_reply">Reply</button>
+              </div>
+            </div>
             }
           </div>
         </div>
@@ -71,6 +79,13 @@ const ChatFeed = (props) => {
                         name="button_delete">Delete</button>
        */
   
+  const onLogout = () => {
+    console.log("OnLogout")
+    localStorage.setItem('username', "");
+    localStorage.setItem('password', "");
+    window.location.reload()
+  } 
+  
   if (!chat) return <div />;
 
   return (
@@ -79,13 +94,16 @@ const ChatFeed = (props) => {
         <div className="chat-title">{chat?.title}</div>
         <div className="chat-subtitle">
           {chat.people.map((person) => ` ${person.person.username}`)}
+          <div>
+            <button onClick={onLogout} name="button_logout">Logout</button>
+          </div>
         </div>
       </div>
       {renderMessages()}
       <div style={{ height: '100px' }} />
-      <div className="message-form-container">
-        <MessageForm {...props} chatId={activeChat} />
-      </div>
+        <div className="message-form-container">
+          <MessageForm {...props} chatId={activeChat} />
+        </div>
     </div>
   );
 };
