@@ -1,0 +1,93 @@
+import React from 'react';
+import { ChatEngine, deleteMessage, editMessage } from 'react-chat-engine';
+//import {Link} from 'react-router-dom';
+
+import MessageForm from './MessageForm';
+
+import PostMessage from './PostMessage';
+//import EditMessage from './EditMessage';
+//import ReplyMessage from './ReplyMessage';
+//import DeleteMessage from './DeleteMessage';
+import { sendMessage, isTyping } from 'react-chat-engine';
+
+
+const ChatFeed = (props) => {
+  const { chats, activeChat, userName, messages, messageId,creds, chatId } = props;
+  const chat = chats && chats[activeChat];
+
+  const renderMessages = () => {
+    const keys = Object.keys(messages);
+    return keys.map((key, index) => {
+      const message = messages[key];
+      const lastMessageKey = index === 0 ? null : keys[index - 1];
+      const isMyMessage = userName === message.sender.username;
+      var lastMessage=messages[lastMessageKey];
+      const isFirstMessageByUser = !lastMessage || lastMessage.sender.username !== message.sender.username;
+
+    
+
+      const editmsg=()=>{
+        var text="edit"
+        console.log(text)
+        editMessage(props);
+      }
+
+      const deletemsg=()=>{
+        var text="delete"
+        console.log(text)
+        deleteMessage(creds,activeChat);
+      }
+
+      const replymsg=()=>{
+        var text="reply"
+        console.log(text)
+        sendMessage(creds, activeChat, { text });
+        //ReplyMessage(props);
+      }
+      
+      return (
+        <div key={`msg_${index}`} style={{ width: '100%' }}>
+          <div className="message-block">
+            < PostMessage message={message} lastMessage={messages[lastMessageKey]}/>
+            {isMyMessage?
+              <div className="buttons" style={{ float: 'left',marginLeft: isFirstMessageByUser ? '20px' : '50px'}}>
+              <button onClick={editmsg} name="button_edit">Edit</button>
+              <button onClick={deletemsg} name="button_delete">Delete</button>
+              <button onClick={replymsg} name="button_reply">Reply</button>
+              </div>
+            :  <button onClick={replymsg} name="button_reply">Reply</button>
+            }
+          </div>
+        </div>
+      );
+    });
+  };
+  /* 
+  <Link to = '/Edit'>Edit   </Link>
+  <Link to = '/Delete'>Delete   </Link>
+  <Link to = '/Reply'>Reply   </Link>
+
+  button onClick={<div><DeleteMessage props={props}/></div>} 
+                        name="button_delete">Delete</button>
+       */
+  
+  if (!chat) return <div />;
+
+  return (
+    <div className="chat-feed">
+      <div className="chat-title-container">
+        <div className="chat-title">{chat?.title}</div>
+        <div className="chat-subtitle">
+          {chat.people.map((person) => ` ${person.person.username}`)}
+        </div>
+      </div>
+      {renderMessages()}
+      <div style={{ height: '100px' }} />
+      <div className="message-form-container">
+        <MessageForm {...props} chatId={activeChat} />
+      </div>
+    </div>
+  );
+};
+
+export default ChatFeed;
