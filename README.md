@@ -10,19 +10,24 @@ After downloading the project, go to the project folder and run npm start:
   
   //go to http://localhost:3000/ to view it in your browser.
   
-  
+-------------
+How to Use:
+
 Users can login or sign up using the main loading page.
-Some users have already been created as below. You can use them or sign up for new ones
-UserName  Password
-u1        u1
-u2        u2
-u3        u3
-u4        u4
-u5        u5
-These 5 users have already been added to a chat "team". You can create your own chat if you want by clicking +Chat. Only the user creating a chat can add other users to it. List of users in the chat is seen above the messages. In the right panel, their login status is marked by green(logged in) or red(logged out)
-Use <Logout> button to switch between users.
-New messages can be posted by typing in the message box. User's messages are differentiated from others' messages by indent. Messages are displayed with the username in front of it, to identify the sender (in place of avatar)
-<Edit><Delete><Reply> buttons appear below current user's messages and only <Reply> under other user's messages. Right now, these buttons only log to the console, and do not perform any task.
+
+Some users have already been created as below: You can use them or sign up for new ones
+
+Existing (username,password): (u1,u1), (u2,u2), (u3,u3), (u4,u4), (u5,u5)
+
+These 5 users have already been added to a chat "team". You can create your own chat if you want by clicking + on MyChat section. Only the user creating a chat can add other users to it. List of users in the chat is seen above the messages in the center panel. In the right panel, their login status is marked by green(logged in) or red(logged out)
+
+Use "Logout" button on top of the center panel, to switch between users.
+  
+New messages can be posted by typing in the message box in the center panel bottom.
+
+User's messages are differentiated from others' messages by indent. Messages are displayed with the username in front of it, to identify the sender (in place of avatar)
+  
+"Edit" "Delete" "Reply" buttons appear below current user's messages and only "Reply" under other user's messages. Right now, these buttons only log to the console, and do not perform any task.
 
 ===============================================================================================
 
