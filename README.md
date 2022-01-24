@@ -1,26 +1,27 @@
-This project is a basic Chatting App using React.js, and ChatEngine.io as the backend
+The project is made using React.js. using ChatEngine.io as the backend.
+It is designed as the front end for a chat-app, which can login/logout users, display chat threads and messages, post new messages, and view user online status.
 
-After downloading the project, 
+
+After downloading the project, go to the project folder and run npm start:
   
   cd chatapp
-  
   npm start 
   
-  //Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  //Open [http://localhost:3000]]to view it in your browser.
   
   
 Users can login or sign up using the main loading page.
-Some users have already been created. You can use them or sign up for new ones
+Some users have already been created as below. You can use them or sign up for new ones
 UserName  Password
 u1        u1
 u2        u2
 u3        u3
 u4        u4
 u5        u5
-These 5 users have already been added to a chat "team". You can create your own chat if you want. Only the user creating a chat can add other users to it. List of users in the chat is seen above the messages. In the right panel, their login status is marked by green(logged in) or red(logged out)
+These 5 users have already been added to a chat "team". You can create your own chat if you want by clicking +Chat. Only the user creating a chat can add other users to it. List of users in the chat is seen above the messages. In the right panel, their login status is marked by green(logged in) or red(logged out)
 Use <Logout> button to switch between users.
-New messages can be posted. User's messages are differentiated from others by indent. Messages also have the username in front of it, to indentify the sender.
-<Edit><Delete><Reply> buttons appear below current user's messages and only <Reply> under other user's messages. Right now, these buttons don't do anything except logging to the console.
+New messages can be posted by typing in the message box. User's messages are differentiated from others' messages by indent. Messages are displayed with the username in front of it, to identify the sender (in place of avatar)
+<Edit><Delete><Reply> buttons appear below current user's messages and only <Reply> under other user's messages. Right now, these buttons only log to the console, and do not perform any task.
 
 ===============================================================================================
 
