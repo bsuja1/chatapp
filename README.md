@@ -1,8 +1,9 @@
 This project is a basic Chatting App using React.js, and ChatEngine.io as the backend
 
 After downloading the project, 
-  >cd chatapp
-  >npm start //Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  
+  cd chatapp
+  npm start //Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
   
   
 Users can login or sign up using the main loading page.
