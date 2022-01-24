@@ -5,6 +5,7 @@ It is designed as the front end for a chat-app, which can login/logout users, di
 After downloading the project, go to the project folder and run npm start:
   
   cd chatapp
+  
   npm start 
   
   //Open [http://localhost:3000]]to view it in your browser.
