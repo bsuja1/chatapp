@@ -8,7 +8,7 @@ After downloading the project, go to the project folder and run npm start:
   
   npm start 
   
-  //Open [http://localhost:3000]]to view it in your browser.
+  //go to http://localhost:3000/ to view it in your browser.
   
   
 Users can login or sign up using the main loading page.
